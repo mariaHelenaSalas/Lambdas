@@ -17,6 +17,7 @@ public class Estadisticas {
         this.gf = gf;
         this.gc = gc;
         this.tp = tp;
+        
 
     }
 
@@ -75,5 +76,6 @@ public class Estadisticas {
     public void setTp(int tp) {
         this.tp = tp;
     }
+
 
 }

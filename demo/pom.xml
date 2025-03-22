@@ -13,13 +13,14 @@
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
     <dependencies>
-<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+       <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 <dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-databind</artifactId>
     <version>2.18.2</version>
 </dependency>
-    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+
+<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
     <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-core</artifactId>
@@ -38,5 +39,8 @@
     <artifactId>gson</artifactId>
     <version>2.10</version>
 </dependency>
-</dependencies>
+
+    </dependencies>
+
+
 </project>

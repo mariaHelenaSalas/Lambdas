@@ -1,25 +1,25 @@
-package com.proyecto_uefa.service;
+package com.proyecto_uefa.Service;
 
+import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.io.FileReader;
-import java.util.ArrayList;
 
-import com.proyecto_uefa.model.Equipo;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.JSONObject;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import com.proyecto_uefa.model.Equipos;
 
 public class EquipoService {
+
      private static final String JSON_PATH = "src/main/java/JSON/UefaTeam.json";
-    public static List<Equipo> listarEquiposFundadosDespuesDe2000() {
-        List<Equipo> listaEquipos = new ArrayList<>();
+    public static List<Equipos> listarEquiposFundadosDespuesDe2000() {
+        List<Equipos> listaEquipos = new ArrayList<>();
 
         try {
-
-
            
             JSONParser parser = new JSONParser();
             Object obj = parser.parse(new FileReader(JSON_PATH));
@@ -33,7 +33,7 @@ public class EquipoService {
                 JSONObject equipoJSON = (JSONObject) equipoObj;
                 int yearFoundation = Integer.parseInt(equipoJSON.get("yearfoundation").toString());
 
-                Equipo equipo = new Equipo(
+                Equipos equipo = new Equipos(
                     Integer.parseInt(equipoJSON.get("id").toString()),
                     (String) equipoJSON.get("name"),
                     yearFoundation,
@@ -48,10 +48,10 @@ public class EquipoService {
         }
 
  
-        Predicate<Equipo> fundadosDespuesDe2000 = equipo -> equipo.getYearfoundation() > 2000;
+        Predicate<Equipos> fundadosDespuesDe2000 = equipo -> equipo.getYearfoundation() > 2000;
 
        
-        List<Equipo> equiposFiltrados = listaEquipos.stream()
+        List<Equipos> equiposFiltrados = listaEquipos.stream()
                 .filter(fundadosDespuesDe2000)
                 .collect(Collectors.toList());
 
@@ -60,7 +60,7 @@ public class EquipoService {
         System.out.println("---------------------------------------------");
         System.out.printf("%-5s | %-20s | %-15s %n", "ID", "Equipo", "Año de fundación");
         System.out.println("---------------------------------------------");
-        for (Equipo equipo : equiposFiltrados) {
+        for (Equipos equipo : equiposFiltrados) {
             System.out.printf("%-5d | %-20s | %-15d %n", equipo.getId(), equipo.getName(), equipo.getYearfoundation());
         }
 
@@ -68,7 +68,7 @@ public class EquipoService {
     }
  
     public static void imprimirNombresEntrenadores() {
-        List<Equipo> listaEquipos = new ArrayList<>();
+        List<Equipos> listaEquipos = new ArrayList<>();
 
         try {
            
@@ -82,7 +82,7 @@ public class EquipoService {
            
             for (Object equipoObj : equipos) {
                 JSONObject equipoJSON = (JSONObject) equipoObj;
-                Equipo equipo = new Equipo(
+                Equipos equipo = new Equipos(
                     Integer.parseInt(equipoJSON.get("id").toString()),
                     (String) equipoJSON.get("name"),
                     Integer.parseInt(equipoJSON.get("yearfoundation").toString()),
@@ -97,7 +97,7 @@ public class EquipoService {
         }
 
        
-        Consumer<Equipo> imprimirEntrenador = equipo -> 
+        Consumer<Equipos> imprimirEntrenador = equipo -> 
             System.out.printf("%-20s | %-15s %n", equipo.getName(), equipo.getCoach());
 
         
@@ -109,5 +109,6 @@ public class EquipoService {
         
         listaEquipos.forEach(imprimirEntrenador);
     }
+
 
 }

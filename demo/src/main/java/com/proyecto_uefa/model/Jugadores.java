@@ -1,6 +1,5 @@
 package com.proyecto_uefa.model;
 
-
 public class Jugadores {
     private int dorsal;
     private String name;
@@ -9,7 +8,7 @@ public class Jugadores {
     private int height;
     private int weight;
     private String position;
-    private Equipo equipo;
+    private Equipos equipo;
 
 
     public Jugadores(int age, String name, String position) {
@@ -28,7 +27,7 @@ public class Jugadores {
         this.position = position;
 
     }
-    public Equipo getEquipo() {
+    public Equipos getEquipo() {
         return equipo;
     }
     
@@ -89,5 +88,7 @@ public class Jugadores {
     }
 
 }
+
+
 
 

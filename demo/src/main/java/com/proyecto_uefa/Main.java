@@ -2,11 +2,11 @@ package com.proyecto_uefa;
 
 import java.util.Scanner;
 
-import com.proyecto_uefa.service.EquipoService;
-import com.proyecto_uefa.service.JugadoresService;
+import com.proyecto_uefa.Service.EquipoService;
+import com.proyecto_uefa.Service.JugadoresService;
 
 public class Main {
-   public static void limpiarPantalla() {
+    public static void limpiarPantalla() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
@@ -101,6 +101,3 @@ public class Main {
         } while (opcion != 2);
     }
 }
-
-
-

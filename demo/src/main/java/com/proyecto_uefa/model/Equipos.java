@@ -3,19 +3,20 @@ package com.proyecto_uefa.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Equipo {
-    private int id;
+public class Equipos {
+
+        private int id;
     private String name;
     private int yearfoundation;
     private String coach;
-    private List<Jugadores> Jugadores; 
+    private List<Jugadores> jugadores; 
 
-    public Equipo(int id, String name, int yearfoundation, String coach) {
+    public Equipos(int id, String name, int yearfoundation, String coach) {
         this.id = id;
         this.name = name;
         this.yearfoundation = yearfoundation;
         this.coach = coach;
-        this.Jugadores = new ArrayList<>(); 
+        this.jugadores = new ArrayList<>(); 
     }
 
   
@@ -52,11 +53,11 @@ public class Equipo {
     }
 
     public List<Jugadores> getJugadores() {
-        return Jugadores;
+        return jugadores;
     }
 
     public void setJugadores(List<Jugadores> jugadores) {
-        this.Jugadores = jugadores;
+        this.jugadores = jugadores;
     }
 
     
@@ -64,5 +65,6 @@ public class Equipo {
     public String toString() {
         return String.format("ID: %d | Equipo: %s | Fundación: %d | Entrenador: %s", id, name, yearfoundation, coach);
     }
-
 }
+
+
